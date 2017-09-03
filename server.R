@@ -17,19 +17,17 @@ library(stringi)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
-    source("C:/Users/johnalva/Desktop/JAMTrelloIBM/JAMTrelloIBM/Process.R")
-    
-    trelloDF <- observe({
-        output$ct <- renderText({
-            trelloDF
-        })
-    })
-    
+    source("Process.R")
+
     observeEvent(input$do, {
-        board <- trelloCollection("d00e8afb53f716936477840488ad72f5",
-            "7e46b4cff5903e5c74d88cc26fa262a1b347edacfabe7b95157f6ca52c67aa7f",
-            "https://trello.com/b/i4u41Lhr/analytics-sdr")
-        
+        tok <<- trelloCollection("d00e8afb53f716936477840488ad72f5",
+            "7e46b4cff5903e5c74d88cc26fa262a1b347edacfabe7b95157f6ca52c67aa7f")
+    
+        output$ct <- renderTable({
+            b <- get_my_boards(tok)
+            #b <- get_id_board("https://trello.com/b/i4u41Lhr/analytics-sdr",tok)
+            b$name
+        })
     })
 })
 
