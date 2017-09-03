@@ -10,5 +10,6 @@ trelloCollection <- function(key, secret, appname = "trello"){
         "https://trello.com/1/OAuthAuthorizeToken",
         "https://trello.com/1/OAuthGetAccessToken")
     
+    options(httr_oauth_cache=FALSE)
     trello.token = oauth1.0_token(trello.urls, trello.app)
 }
