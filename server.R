@@ -17,7 +17,7 @@ library(stringi)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
-    source("C:/Users/johnalva/Desktop/JAMTrelloIBM/Process.R")
+    source("C:/Users/johnalva/Desktop/JAMTrelloIBM/JAMTrelloIBM/Process.R")
     
     trelloDF <- observe({
         output$ct <- renderText({
