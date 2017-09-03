@@ -26,16 +26,7 @@ dashboardPage(
     dashboardBody(
         # Boxes need to be put in a row (or column)
         fluidRow(
-            box(plotlyOutput("ct", height = 250)),
-            box(plotlyOutput("tp", height = 250)),
-            box(plotlyOutput("pt3", height = 250)),
-            box(plotlyOutput("pt4", height = 250)),
-            box(plotlyOutput("pt5", height = 250)),
-            box(plotlyOutput("pt6", height = 250))
-        ),
-        
-        fluidRow(
-            dataTableOutput("c4")
+            box(textOutput("ct"))
         )
         
     )
